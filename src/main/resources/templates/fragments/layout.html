@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <!-- Shared Navigation Bar Fragment -->
+    <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" th:href="@{/}">
+                <i class="bi bi-search-heart me-2 fs-4 text-warning"></i>
+                <span>Campus Lost &amp; Found</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}"><i class="bi bi-house-door me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/items}"><i class="bi bi-grid me-1"></i> Browse Directory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger-emphasis fw-semibold" th:href="@{/items/lost}">
+                            <i class="bi bi-exclamation-circle me-1 text-danger"></i> Lost Items
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success-emphasis fw-semibold" th:href="@{/items/found}">
+                            <i class="bi bi-check-circle me-1 text-success"></i> Found Items
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a th:href="@{/items/report-lost}" class="btn btn-danger btn-sm shadow-sm d-flex align-items-center">
+                        <i class="bi bi-exclamation-triangle-fill me-1"></i> Report Lost
+                    </a>
+                    <a th:href="@{/items/report-found}" class="btn btn-success btn-sm shadow-sm d-flex align-items-center">
+                        <i class="bi bi-plus-circle-fill me-1"></i> Report Found
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shared Flash Alerts Fragment -->
+    <div th:fragment="alerts" class="container mt-3">
+        <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show shadow-sm rounded-3 d-flex align-items-center" role="alert">
+            <i class="bi bi-check-circle-fill fs-5 me-2"></i>
+            <div th:text="${successMessage}">Operation completed successfully!</div>
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show shadow-sm rounded-3 d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle-fill fs-5 me-2"></i>
+            <div th:text="${errorMessage}">An error occurred.</div>
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <!-- Shared Footer Fragment -->
+    <footer th:fragment="footer" class="bg-white border-top py-4 text-center text-muted small mt-auto">
+        <div class="container">
+            <p class="mb-1 fw-semibold">&copy; 2026 Campus Lost &amp; Found Portal &bull; College Mini Project</p>
+            <p class="mb-0 text-secondary">
+                Powered by Java 21 &bull; Spring Boot 3 &bull; Spring Data JPA &bull; MySQL &bull; Thymeleaf &bull; Bootstrap 5
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

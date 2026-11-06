@@ -1,0 +1,30 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IDE files ###
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+.vscode/
+
+### Data and logs ###
+/data/
+*.log
+### Application secrets ###
+.env
+.env.*
+!.env.example
+application-local.properties
+application-secret.properties
+
+### Uploaded files ###
+/uploads/
+
+### Logs ###
+*.log
